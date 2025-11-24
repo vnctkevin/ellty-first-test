@@ -1,0 +1,147 @@
+:root {
+    /* Figma Tokens */
+    --bg-color: #F3F4F6;
+    --card-bg: #FFFFFF;
+    --primary-color: #FFCE22;
+    --secondary-color: #5087F8;
+    /* Indigo-600 */
+    --text-main: #111827;
+    --text-secondary: #6B7280;
+    --border-color: #E5E7EB;
+    --hover-bg: #F9FAFB;
+    --radius: 6px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card Container */
+.card {
+    background: var(--card-bg);
+    width: 380px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+/* Layout Utils */
+.card-header,
+.card-body,
+.card-footer {
+    padding: 16px 20px;
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--border-color);
+    width: 100%;
+}
+
+/* Checkbox Row Styling */
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    user-select: none;
+}
+
+.checkbox-row:hover {
+    background-color: var(--hover-bg);
+}
+
+/* Hide default browser checkbox */
+.checkbox-row input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+/* Custom Checkbox Visual */
+.custom-checkbox {
+    width: 23px;
+    height: 23px;
+    border: 2px solid #D1D5DB;
+    border-radius: 6px;
+    /* Rounded box like Figma modern UI */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+/* Text Styling */
+.label-text {
+    font-size: 14px;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.main-row .label-text {
+    font-weight: 600;
+    /* Bolder for Select All */
+}
+
+/* --- Checked States --- */
+
+/* Box Background when Checked */
+input:checked+.custom-checkbox,
+input:indeterminate+.custom-checkbox {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Checkmark Icon (CSS Draw) */
+input:checked+.custom-checkbox::after {
+    content: '';
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translate(0px, -1px);
+}
+
+/* Indeterminate State (Dash Icon) */
+input:indeterminate+.custom-checkbox::after {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background-color: white;
+    border: none;
+    transform: rotate(0);
+}
+
+/* Button */
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
